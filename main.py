@@ -1,7 +1,8 @@
 import pytchat
 
-vid_id = "VIDEO_ID"
+vid_id = "uxPQPp_nAs0"
 chat = pytchat.create(video_id=vid_id)
 while chat.is_alive():
     for c in chat.get().sync_items():
-        print(f"{c.message}")
+        if c.message.startswith("/"):
+            print(f"{c.message}")
