@@ -1,0 +1,8 @@
+name: SpawnCommand
+version: 1.0
+author: dextero
+main: io.dexterolabs.streamcraft.Main
+
+commands:
+  spawno:
+    aliases: [so]
