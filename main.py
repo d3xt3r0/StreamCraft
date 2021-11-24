@@ -9,7 +9,7 @@ def write_data(command):
     #writes data to firebase realtime DB
 
     ref = db.reference("/")
-    ref.child("command").update({"command":command})
+    ref.update({"command":command})
 
     return True
 
@@ -24,10 +24,10 @@ default_app = firebase_admin.initialize_app(cred_obj, {
 	})
 
 
-vid_id = "DWcJFNfaw9c"
+vid_id = "qVQQONmQ0qY"
 chat = pytchat.create(video_id=vid_id)
 while chat.is_alive():
     for c in chat.get().sync_items():
         if c.message.startswith("/"):
             print(f"{c.message}")
-            write_data(c.message.strip("/")) # writes to DB
+            write_data(f"{c.author.name + c.message}") # writes to DB
